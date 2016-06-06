@@ -1,0 +1,51 @@
+﻿<!--Website made with Materialize instead of Bootstrap-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Materialize/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <header>
+        <!--Menu buttons disappear on medium and small screens and a menu navigation button appears for a slide out menu-->
+        <nav class="top-nav">
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="slide-out" class="side-nav">
+                <li>@Html.ActionLink("Networks", "Index", "Networks")</li>
+                <li>@Html.ActionLink("TvShows", "Index", "TvShows")</li>
+            </ul>
+            <div class="nav-wrapper deep-purple">
+                @Html.ActionLink("STREAMIT.TV", "Index", "Home", new { area = "" }, new { @class = "brand-logo" })
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>@Html.ActionLink("Networks", "Index", "Networks")</li>
+                    <li>@Html.ActionLink("TvShows", "Index", "TvShows")</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="page-footer deep-purple accent-1">
+        <div class="footer-copyright deep-purple">
+            <div class="container">
+
+                <p class="grey-text text-lighten-4 left"><!--&copy;--><i class="icon-code"></i> with <i class="icon-heart"></i> by Cadale Thomas @DateTime.Now.Year</p><p class="grey-text text-lighten-4 right">Made with Materialize - An ASP.NET Application</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

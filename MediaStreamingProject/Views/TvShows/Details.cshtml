@@ -1,0 +1,66 @@
+﻿@model MediaStreamingProject.Models.TvShow
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TvShow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seasons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seasons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImdbRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImdbRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvShow_Image_Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvShow_Image_Link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Network.NetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Network.NetName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShowID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

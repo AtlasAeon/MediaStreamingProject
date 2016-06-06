@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MediaStreamingProject.Models.TvShow>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="parallax-container">
+    <div class="parallax"><img src="https://assets.nflxext.com/ffe/siteui/vlv/86154fc8-e6b6-4ae7-8cec-14ce8a5fdd72/83a25d82-462a-456b-ab9d-c19302bceb9d/perspective_alpha_large.jpg"></div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model) {
+
+        <div class="col s6 m3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">@Html.DisplayFor(modelItem => item.ShowName)</span>
+                    <ul>
+                        <li>Start Year: @String.Format("{0:yyyy}", item.StartYear)</li>
+                        <li>Seasons: @Html.DisplayFor(modelItem => item.Seasons)</li>
+                        <li>IMDB Rating: @Html.DisplayFor(modelItem => item.ImdbRating)</li>
+                        <li>Network: @Html.DisplayFor(modelItem => item.Network.NetName)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>

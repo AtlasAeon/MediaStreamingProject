@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TvShowDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Network">
+    <Key>
+      <PropertyRef Name="NetworkID" />
+    </Key>
+    <Property Name="NetworkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NetName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TvShows" Relationship="Self.FK__TvShows__Network__1273C1CD" FromRole="Networks" ToRole="TvShows" />
+    <Property Name="Net_Image_Link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TvShow">
+    <Key>
+      <PropertyRef Name="ShowID" />
+    </Key>
+    <Property Name="ShowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NetworkID" Type="Int32" Nullable="false" />
+    <Property Name="ShowName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Seasons" Type="Int32" />
+    <Property Name="StartYear" Type="DateTime" Precision="0" />
+    <Property Name="ImdbRating" Type="Single" />
+    <NavigationProperty Name="Network" Relationship="Self.FK__TvShows__Network__1273C1CD" FromRole="TvShows" ToRole="Networks" />
+    <Property Name="TvShow_Image_Link" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__TvShows__Network__1273C1CD">
+    <End Role="Networks" Type="Self.Network" Multiplicity="1" />
+    <End Role="TvShows" Type="Self.TvShow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Networks">
+        <PropertyRef Name="NetworkID" />
+      </Principal>
+      <Dependent Role="TvShows">
+        <PropertyRef Name="NetworkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TvShowDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Networks" EntityType="Self.Network" />
+    <EntitySet Name="TvShows" EntityType="Self.TvShow" />
+    <AssociationSet Name="FK__TvShows__Network__1273C1CD" Association="Self.FK__TvShows__Network__1273C1CD">
+      <End Role="Networks" EntitySet="Networks" />
+      <End Role="TvShows" EntitySet="TvShows" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

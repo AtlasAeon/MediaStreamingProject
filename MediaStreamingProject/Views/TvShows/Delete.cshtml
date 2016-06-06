@@ -1,0 +1,72 @@
+﻿@model MediaStreamingProject.Models.TvShow
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TvShow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShowName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seasons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seasons)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImdbRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImdbRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TvShow_Image_Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TvShow_Image_Link)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Network.NetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Network.NetName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

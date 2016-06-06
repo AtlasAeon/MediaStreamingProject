@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MediaStreamingProject.Models.Network>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row container">
+    <h2 class="header">Networks</h2>
+    <p class="grey-text text-darken-3 lighten-3">View our variety of networks!</p>
+</div>
+
+<div class="slider">
+    <ul class="slides">
+        @foreach (var item in Model) {
+            <li>
+                <img src=@Html.DisplayFor(modelItem => item.Net_Image_Link)>
+            </li>
+        }
+    </ul>
+</div>

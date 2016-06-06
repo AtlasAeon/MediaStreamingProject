@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TvShowDBModelStoreContainer" CdmEntityContainer="TvShowDBEntities">
+    <EntitySetMapping Name="Networks">
+      <EntityTypeMapping TypeName="TvShowDBModel.Network">
+        <MappingFragment StoreEntitySet="Networks">
+          <ScalarProperty Name="Net_Image_Link" ColumnName="Net_Image_Link" />
+          <ScalarProperty Name="NetworkID" ColumnName="NetworkID" />
+          <ScalarProperty Name="NetName" ColumnName="NetName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TvShows">
+      <EntityTypeMapping TypeName="TvShowDBModel.TvShow">
+        <MappingFragment StoreEntitySet="TvShows">
+          <ScalarProperty Name="TvShow_Image_Link" ColumnName="TvShow_Image_Link" />
+          <ScalarProperty Name="ShowID" ColumnName="ShowID" />
+          <ScalarProperty Name="NetworkID" ColumnName="NetworkID" />
+          <ScalarProperty Name="ShowName" ColumnName="ShowName" />
+          <ScalarProperty Name="Seasons" ColumnName="Seasons" />
+          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+          <ScalarProperty Name="ImdbRating" ColumnName="ImdbRating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

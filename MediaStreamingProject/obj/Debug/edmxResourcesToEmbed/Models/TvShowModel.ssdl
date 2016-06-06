@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TvShowDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Networks">
+    <Key>
+      <PropertyRef Name="NetworkID" />
+    </Key>
+    <Property Name="NetworkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NetName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Net_Image_Link" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TvShows">
+    <Key>
+      <PropertyRef Name="ShowID" />
+    </Key>
+    <Property Name="ShowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NetworkID" Type="int" Nullable="false" />
+    <Property Name="ShowName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Seasons" Type="int" />
+    <Property Name="StartYear" Type="date" />
+    <Property Name="ImdbRating" Type="real" />
+    <Property Name="TvShow_Image_Link" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK__TvShows__Network__1273C1CD">
+    <End Role="Networks" Type="Self.Networks" Multiplicity="1" />
+    <End Role="TvShows" Type="Self.TvShows" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Networks">
+        <PropertyRef Name="NetworkID" />
+      </Principal>
+      <Dependent Role="TvShows">
+        <PropertyRef Name="NetworkID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TvShowDBModelStoreContainer">
+    <EntitySet Name="Networks" EntityType="Self.Networks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TvShows" EntityType="Self.TvShows" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TvShows__Network__1273C1CD" Association="Self.FK__TvShows__Network__1273C1CD">
+      <End Role="Networks" EntitySet="Networks" />
+      <End Role="TvShows" EntitySet="TvShows" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
